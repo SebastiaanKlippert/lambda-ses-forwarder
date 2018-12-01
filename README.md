@@ -30,11 +30,11 @@ S3_BUCKET | Yes | Name of the S3 bucket you use to store incoming mails
 S3_BUCKET_REGION | No | Can be set when the S3 bucket is in a different AWS region than your Lambda
 S3_PREFIX | No | If you use a key prefix when storing mails you can enter it here
 
-<sup>1</sup> a single RFC 5322 address, e.g. "test@example.com" or "My Name <test@example.com>" 
+<sup>1</sup> a single RFC 5322 address, e.g. `test@example.com` or `My Name <test@example.com>` 
 
-<sup>2</sup> can include %s as replacer to include the original sender name, e.g. "%s through my mail forwarder <forwarder@example.com>"
+<sup>2</sup> can include %s as replacer to include the original sender name, e.g. `%s through my mail forwarder <forwarder@example.com>`
 
-**Important** Make sure the FROM address is a verified address in SES and is allowed to send mail, the original FROM address will be set as Reply-To address so you can answer the mails directly.
+**Important** Ensure the FROM address is a verified address in SES and is allowed to send mail, the original FROM address will be set as Reply-To address so you can answer the mails directly.
 
 ![Lambda Env](https://sklippert.s3-eu-central-1.amazonaws.com/public/lambda-env.png "Lambda environment")
 
