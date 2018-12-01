@@ -16,7 +16,7 @@ Assuming you have SES incoming emails enabled, this function needs the following
 
 ### Lambda
 
-* Create a Lambda function in Go language
+* Create a Lambda function with Go 1.x runtime and the execution role you have just created
 * Build this program or download a [release](https://github.com/SebastiaanKlippert/lambda-ses-forwarder/releases) zip
 * Set the exection handler name to the name of the binary (lambda_ses_forwarder_linux if you use a release)
 * Memory size can be as low as 128MB if you don't receive large mails, but 256MB or higher is recommended
