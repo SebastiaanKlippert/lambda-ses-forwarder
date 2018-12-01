@@ -34,14 +34,14 @@ S3_PREFIX | No | If you use a key prefix when storing mails you can enter it her
 
 <sup>2</sup> can include %s as replacer to include the original sender name, e.g. "%s through my mail forwarder <forwarder@example.com>"
 
-**Important** Make sure the FROM address is a verified address in SES and is allow to send mail, the original FROM address will be set as Reply-To address so you can answer the mails directly.
+**Important** Make sure the FROM address is a verified address in SES and is allowed to send mail, the original FROM address will be set as Reply-To address so you can answer the mails directly.
 
 ![Lambda Env](https://sklippert.s3-eu-central-1.amazonaws.com/public/lambda-env.png "Lambda environment")
 
 
 ### SES
 
-* Create a Rule Set for the incoming address or domain you ant to forward emails for
+* Create a Rule Set for the incoming address or domain you want to forward emails for
 * Create a first action to store your mail in the S3 bucket from the previous steps with an optional prefix
 * Create a second action to call the Lambda function you created
 
