@@ -89,7 +89,7 @@ func forwardMail(original *events.SimpleEmailRecord) error {
 
 	// add all original headers except address headers
 	for h := range parsedMail.Header {
-		if h == "To" || h == "From" || h == "Bcc" || h == "Reply-To" {
+		if skipHeader(h) {
 			continue
 		}
 		fmt.Fprintf(newMail, "%s: %s\r\n", h, parsedMail.Header.Get(h))
@@ -126,6 +126,10 @@ func forwardMail(original *events.SimpleEmailRecord) error {
 	}
 
 	return nil
+}
+
+func skipHeader(h string) bool {
+	return h == "To" || h == "From" || h == "Bcc" || h == "Reply-To" || h == "Return-Path"
 }
 
 func getFromS3(original *events.SimpleEmailRecord) (io.ReadCloser, error) {
