@@ -77,6 +77,7 @@ func forwardMail(original *events.SimpleEmailRecord) error {
 	if orgFrom == nil {
 		orgFrom = &mail.Address{}
 	}
+	// FORWARD_FROM may contain %s to include the original sender name
 	from := fmt.Sprintf(os.Getenv("FORWARD_FROM"), orgFrom.Name)
 	addrFrom, err := mail.ParseAddress(from)
 	if err != nil {
