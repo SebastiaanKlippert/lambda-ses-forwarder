@@ -129,7 +129,7 @@ func forwardMail(original *events.SimpleEmailRecord) error {
 }
 
 func skipHeader(h string) bool {
-	return h == "To" || h == "From" || h == "Bcc" || h == "Reply-To" || h == "Return-Path"
+	return h == "To" || h == "Cc" || h == "Bcc" || h == "From" || h == "Reply-To" || h == "Return-Path"
 }
 
 func getFromS3(original *events.SimpleEmailRecord) (io.ReadCloser, error) {
