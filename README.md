@@ -34,7 +34,7 @@ S3_PREFIX | No | If you use a key prefix when storing mails you can enter it her
 
 <sup>2</sup> can include %s as replacer to include the original sender name, e.g. `%s through my mail forwarder <forwarder@example.com>`
 
-**Important** Ensure the FROM address is a verified address in SES and is allowed to send mail, the original FROM address will be set as Reply-To address so you can answer the mails directly.
+**Important** Ensure the FORWARD_FROM address is a verified address in SES and is allowed to send mail, the original FROM address will be set as Reply-To address so you can answer the mails directly.
 
 ![Lambda Env](https://sklippert.s3-eu-central-1.amazonaws.com/public/lambda-env.png "Lambda environment")
 
