@@ -8,6 +8,7 @@ import (
 	"net/mail"
 	"os"
 	"path"
+	"strings"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
@@ -78,7 +79,10 @@ func forwardMail(original *events.SimpleEmailRecord) error {
 		orgFrom = &mail.Address{}
 	}
 	// FORWARD_FROM may contain %s to include the original sender name
-	from := fmt.Sprintf(os.Getenv("FORWARD_FROM"), orgFrom.Name)
+	from := os.Getenv("FORWARD_FROM")
+	if strings.Count(from, "%s") == 1 {
+		from = fmt.Sprintf(from, orgFrom.Name)
+	}
 	addrFrom, err := mail.ParseAddress(from)
 	if err != nil {
 		return fmt.Errorf("ParseAddress failed for FORWARD_FROM: %s", err)
